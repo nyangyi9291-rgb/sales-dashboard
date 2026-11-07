@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>매출 대시보드</title>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">실시간 판매 현황</div>
+          <h1>매출 대시보드</h1>
+        </div>
+        <button class="refresh-btn" onclick="loadData()">새로고침</button>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <div class="label">총 매출</div>
+          <div class="value" id="total-sales">-</div>
+          <div class="meta" id="sales-trend">-</div>
+        </div>
+        <div class="card">
+          <div class="label">건수</div>
+          <div class="value" id="total-count">-</div>
+          <div class="meta">전체 거래 건수</div>
+        </div>
+        <div class="card">
+          <div class="label">평균 매출</div>
+          <div class="value" id="avg-sales">-</div>
+          <div class="meta">건당 평균</div>
+        </div>
+        <div class="card">
+          <div class="label">목표 달성률</div>
+          <div class="value" id="target-rate">-</div>
+          <div class="meta" id="target-remaining">-</div>
+        </div>
+      </section>
+
+      <section class="chart-grid">
+        <div class="panel">
+          <h2>일자별 매출</h2>
+          <canvas id="salesChart"></canvas>
+        </div>
+        <div class="panel">
+          <h2>담당자별 매출</h2>
+          <canvas id="personChart"></canvas>
+        </div>
+      </section>
+
+      <section class="panel table-panel">
+        <h2>최근 거래 내역</h2>
+        <div class="table-wrap">
+          <table id="salesTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
